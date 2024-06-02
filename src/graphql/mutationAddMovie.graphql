@@ -1,0 +1,13 @@
+mutation AddMovie($listId: Int!, $imdbId: String!) {
+  addMovie(listId: $listId, imdbId: $imdbId) {
+    created_at
+    id
+    imdb_id
+    movie {
+      Poster
+      Year
+      imdbRating
+      Title
+    }
+  }
+}

@@ -1,0 +1,15 @@
+
+query SearchMovieById($searchMovieByIdId: String!) {
+  searchMovieById(id: $searchMovieByIdId) {
+      Title
+      Year
+      imdbRating
+      Genre
+      Plot
+      Poster
+      Director
+      Writer
+      Actors
+    
+  }
+}
