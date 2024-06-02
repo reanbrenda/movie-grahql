@@ -6,7 +6,7 @@ import { MovieListItem, SearchMovie } from '@/generated/graphql';
 import styles from '../app/styles/List.module.css';
 import MovieSearchModal from './MovieSearchModal';
 
-
+import Link from 'next/link';
 
 interface MovieListPageProps {
   listId: number;
@@ -73,7 +73,9 @@ const MovieListPage: React.FC<MovieListPageProps> = ({ listId, initialMovies }) 
             <li key={item.id} className={styles.movieListItem}>
               <img src={item.movie.Poster ?? undefined} alt={item.movie.Title ?? 'Movie poster'} />
               <div className={styles.movieInfo}>
-                <span className={styles.movieTitle}>{item.movie.Title}</span>
+              <Link href={`/movie/${item.imdb_id}`} className={styles.movieTitle}>
+                  {item.movie.Title}
+                </Link>
                 <span className={styles.movieYear}>{item.movie.Year}</span>
               </div>
               <button className={styles.removeButton} onClick={() => handleRemoveMovie(item.id)}>Remove</button>
